@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Number guessing game</title>
+  <style>
+  html {
+    font-family: sans-serif;
+  }
+  body {
+    width: 50%;
+    max-width: 800px;
+    min-width: 480px;
+    margin: 0 auto;
+  }
+  .lastResult {
+    color: white;
+    padding: 3px;
+  }
+  </style>
+</head>
+
+<body>
+  <h1>Number guessing game</h1>
+  <p>We have selected a random number between 1 and 100. See if you can guess it in 10 turns or fewer. We'll tell you if your guess was too high or too low.</p>
+  <div class="form">
+    <label for="guessField">Enter a guess: </label><input type="text" id="guessField" class="guessField">
+    <input type="submit" value="Submit guess" class="guessSubmit">
+  </div>
+  
+  <div class="resultParas">
+    <p class="guesses"></p>
+    <p class="lastResult"></p>
+    <p class="lowOrHi"></p>
+  </div>
+  
+<script>
+// 1~100중 하나의 숫자 할당
+var randomNumber = Math.floor(Math.random() * 100) + 1;  
+
+// 클래스명이 guesses인 DOM을 guesses변수에 할당
+// Document Object Model
+// 입력한 추측값들을 보여주는 p요소
+var guesses = document.querySelector('.guesses');
+
+// 마지막으로 입력한 추측값의 결과를 보여주는 p요소
+var lastResult = document.querySelector('.lastResult');
+
+// 마지막으로 입력한 추측값이 randomNumber보다 큰지 작은지 보여주는 p요소
+var lowOrHi = document.querySelector('.lowOrHi');
+
+// Submit guess버튼 요소
+var guessSubmit = document.querySelector('.guessSubmit');
+// 추측값을 입력하는 input요소
+var guessField = document.querySelector('.guessField');
+
+// 현재까지 몇 번 숫자를 입력했는지에 대한 값을 저장하는 변수
+var guessCount = 1;
+// 리셋버튼
+var resetButton;
+
+</script>
+
+</body>
+</html>
